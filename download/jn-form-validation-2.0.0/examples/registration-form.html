@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f5f4" />
+    <title>Registration Form — JN Form Validation 2.0.0</title>
+    <link rel="stylesheet" href="../assets/css/example-forms.css" />
+    <link rel="stylesheet" href="../assets/css/jn-formvalidation.css" />
+    <script src="../assets/js/jn.formvalidation.js" defer></script>
+    <script src="../assets/js/example-forms.js" defer></script>
+  </head>
+  <body>
+    <main class="example-page">
+      <div class="example-page__intro">
+        <p class="example-eyebrow">JN FORM VALIDATION <span aria-hidden="true">/</span> PRACTICAL EXAMPLE</p>
+        <h1>Registration form</h1>
+        <p class="example-page__lead">A front-end sign-up form showing required text, email, password, account choice, and terms acceptance.</p>
+      </div>
+
+      <section class="example-card" aria-labelledby="registration-title">
+        <div class="example-card__heading">
+          <div>
+            <p class="example-eyebrow">NEW PROFILE</p>
+            <h2 id="registration-title">Create your profile</h2>
+            <p class="example-card__description">Use any non-empty password for this local validation demonstration.</p>
+          </div>
+          <span class="example-card__mark" aria-hidden="true">JN</span>
+        </div>
+
+        <form class="example-form" novalidate data-success="The registration fields passed validation. Nothing was registered or saved.">
+          <div class="example-form__grid">
+            <div class="jn-input-wrap example-form__group example-form__group--wide">
+              <label for="register-name">Full name <span class="example-required" aria-hidden="true">*</span></label>
+              <input class="example-control" id="register-name" name="fullName" type="text" autocomplete="name" placeholder="Taylor Morgan" required />
+            </div>
+            <div class="jn-input-wrap example-form__group example-form__group--wide">
+              <label for="register-email">Email address <span class="example-required" aria-hidden="true">*</span></label>
+              <input class="example-control" id="register-email" name="email" type="email" autocomplete="email" placeholder="taylor@example.com" required />
+            </div>
+            <div class="jn-input-wrap example-form__group example-form__group--wide">
+              <label for="register-password">Password <span class="example-required" aria-hidden="true">*</span></label>
+              <input class="example-control" id="register-password" name="password" type="password" autocomplete="new-password" placeholder="Enter a demo password" aria-describedby="register-password-help" required />
+              <small id="register-password-help">Version 2.0.0 checks only that this field is not empty. No password strength or confirmation rule is included.</small>
+            </div>
+            <div class="jn-input-wrap example-form__group example-form__group--wide">
+              <label for="account-type">Account type <span class="example-required" aria-hidden="true">*</span></label>
+              <select class="example-control" id="account-type" name="accountType" aria-describedby="account-type-help" required>
+                <option value="">Choose an account type</option>
+                <option value="individual">Individual</option>
+                <option value="team">Team</option>
+                <option value="educator">Educator</option>
+              </select>
+              <small id="account-type-help">The bundled library reports an error until you choose an account type.</small>
+            </div>
+            <fieldset class="jn-input-wrap example-form__group example-form__choice-group example-form__group--wide">
+              <legend>Terms <span class="example-required" aria-hidden="true">*</span></legend>
+              <label class="example-choice">
+                <input type="checkbox" name="termsAccepted" value="yes" required />
+                <span>I agree to the example terms for this demo.</span>
+              </label>
+            </fieldset>
+          </div>
+          <div class="example-form__actions">
+            <button class="example-form__button" type="submit">Validate profile <span aria-hidden="true">→</span></button>
+            <p class="example-form__fineprint">No account is created. After a valid check, the form resets and clears the password without saving it.</p>
+            <p class="example-form__status" role="status" aria-live="polite" tabindex="-1" hidden></p>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

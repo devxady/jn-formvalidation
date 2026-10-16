@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f5f4" />
+    <title>Quote Request Form — JN Form Validation 2.0.0</title>
+    <link rel="stylesheet" href="../assets/css/example-forms.css" />
+    <link rel="stylesheet" href="../assets/css/jn-formvalidation.css" />
+    <script src="../assets/js/jn.formvalidation.js" defer></script>
+    <script src="../assets/js/example-forms.js" defer></script>
+  </head>
+  <body>
+    <main class="example-page">
+      <div class="example-page__intro">
+        <p class="example-eyebrow">JN FORM VALIDATION <span aria-hidden="true">/</span> PRACTICAL EXAMPLE</p>
+        <h1>Request a quote</h1>
+        <p class="example-page__lead">A project enquiry with service, budget, and detail fields using only the local validator.</p>
+      </div>
+
+      <section class="example-card" aria-labelledby="quote-title">
+        <div class="example-card__heading">
+          <div>
+            <p class="example-eyebrow">PROJECT ENQUIRY</p>
+            <h2 id="quote-title">Tell us about your project</h2>
+            <p class="example-card__description">All fields are checked locally. This form does not request or send a quote.</p>
+          </div>
+          <span class="example-card__mark" aria-hidden="true">JN</span>
+        </div>
+
+        <form class="example-form" novalidate data-success="Your quote request passed the local validation demo. No request was sent or stored.">
+          <div class="example-form__grid">
+            <div class="jn-input-wrap example-form__group">
+              <label for="quote-name">Full name <span class="example-required" aria-hidden="true">*</span></label>
+              <input class="example-control" id="quote-name" name="fullName" type="text" autocomplete="name" placeholder="Morgan Chen" required />
+            </div>
+            <div class="jn-input-wrap example-form__group">
+              <label for="quote-email">Email address <span class="example-required" aria-hidden="true">*</span></label>
+              <input class="example-control" id="quote-email" name="email" type="email" autocomplete="email" placeholder="morgan@example.com" required />
+            </div>
+            <div class="jn-input-wrap example-form__group">
+              <label for="service-type">Service type <span class="example-required" aria-hidden="true">*</span></label>
+              <select class="example-control" id="service-type" name="serviceType" aria-describedby="service-type-help" required>
+                <option value="">Choose a service</option>
+                <option value="website">Website</option>
+                <option value="application">Web application</option>
+                <option value="consulting">Consulting</option>
+              </select>
+              <small id="service-type-help">The bundled library reports an error until you choose a service.</small>
+            </div>
+            <div class="jn-input-wrap example-form__group">
+              <label for="budget">Estimated budget (whole dollars) <span class="example-required" aria-hidden="true">*</span></label>
+              <input class="example-control" id="budget" name="budget" type="number" inputmode="numeric" step="1" placeholder="5000" aria-describedby="budget-help" required />
+              <small id="budget-help">Enter digits only; the library does not evaluate numeric bounds.</small>
+            </div>
+            <div class="jn-input-wrap example-form__group example-form__group--wide">
+              <label for="project-details">Project details <span class="example-required" aria-hidden="true">*</span></label>
+              <textarea class="example-control example-control--textarea" id="project-details" name="projectDetails" placeholder="Share goals, timing, and any useful context" required></textarea>
+            </div>
+          </div>
+          <div class="example-form__actions">
+            <button class="example-form__button" type="submit">Validate request <span aria-hidden="true">→</span></button>
+            <p class="example-form__fineprint">This is a local front-end example. No API, email, or server submission is involved.</p>
+            <p class="example-form__status" role="status" aria-live="polite" tabindex="-1" hidden></p>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

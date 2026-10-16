@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f5f4" />
+    <title>All Fields Form — JN Form Validation 2.0.0</title>
+    <link rel="stylesheet" href="./assets/css/example-forms.css" />
+    <link rel="stylesheet" href="./assets/css/jn-formvalidation.css" />
+    <script src="./assets/js/jn.formvalidation.js" defer></script>
+    <script src="./assets/js/example-forms.js" defer></script>
+  </head>
+  <body>
+    <main class="example-page example-page--wide">
+      <div class="example-page__intro">
+        <p class="example-eyebrow">JN FORM VALIDATION <span aria-hidden="true">/</span> VERSION 2.0.0</p>
+        <h1>All fields, one form.</h1>
+        <p class="example-page__lead">A hands-on tour of the field types recognized by the bundled validator. Try a few values, then submit to see its native error messages.</p>
+        <p class="example-page__examples">More examples: <a href="./examples/contact-form.html">Contact</a><span aria-hidden="true">·</span><a href="./examples/registration-form.html">Registration</a><span aria-hidden="true">·</span><a href="./examples/quote-request-form.html">Quote request</a></p>
+      </div>
+
+      <section class="example-card" aria-labelledby="all-fields-title">
+        <div class="example-card__heading">
+          <div>
+            <p class="example-eyebrow">COMPLETE DEMO</p>
+            <h2 id="all-fields-title">Explore the supported controls</h2>
+            <p class="example-card__description">Every field is required by the v2.0.0 validator. Errors below are produced by the bundled library.</p>
+          </div>
+          <span class="example-card__version" aria-label="Version 2.0.0">2.0.0</span>
+        </div>
+
+        <form class="jnForm example-form" novalidate data-success="All fields passed validation. This demo sent and saved nothing.">
+          <section class="example-form__section" aria-labelledby="details-heading">
+            <h3 id="details-heading">01 <span>Your details</span></h3>
+            <div class="example-form__grid">
+              <div class="jn-input-wrap example-form__group">
+                <label for="full-name">Full name <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="full-name" name="fullName" type="text" autocomplete="name" placeholder="Ada Lovelace" required />
+              </div>
+              <div class="jn-input-wrap example-form__group">
+                <label for="email">Email address <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="email" name="email" type="email" autocomplete="email" placeholder="ada@example.com" required />
+              </div>
+              <div class="jn-input-wrap example-form__group">
+                <label for="password">Password <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="password" name="password" type="password" autocomplete="new-password" placeholder="Enter any non-empty value" aria-describedby="password-help" required />
+                <small id="password-help">The validator checks that a value is present; it does not check strength or compare passwords.</small>
+              </div>
+              <div class="jn-input-wrap example-form__group">
+                <label for="phone">Phone number <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="4155550134" aria-describedby="phone-help" required />
+                <small id="phone-help">Use exactly 10 digits, with no spaces or punctuation.</small>
+              </div>
+              <div class="jn-input-wrap example-form__group">
+                <label for="quantity">Whole number <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="quantity" name="quantity" type="number" inputmode="numeric" step="1" placeholder="24" aria-describedby="quantity-help" required />
+                <small id="quantity-help">The library accepts digits only and does not check numeric bounds.</small>
+              </div>
+              <div class="jn-input-wrap example-form__group">
+                <label for="website">Website URL <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="website" name="website" type="url" inputmode="url" placeholder="https://example.com" aria-describedby="website-help" required />
+                <small id="website-help">Include a protocol such as https://.</small>
+              </div>
+              <div class="jn-input-wrap example-form__group example-form__group--wide">
+                <label for="search-term">Search term <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="search-term" name="searchTerm" type="search" placeholder="What would you like to find?" required />
+              </div>
+            </div>
+          </section>
+
+          <section class="example-form__section" aria-labelledby="schedule-heading">
+            <h3 id="schedule-heading">02 <span>Dates &amp; preferences</span></h3>
+            <div class="example-form__grid">
+              <div class="jn-input-wrap example-form__group">
+                <label for="start-date">Date <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="start-date" name="startDate" type="date" required />
+              </div>
+              <div class="jn-input-wrap example-form__group">
+                <label for="meeting-time">Time <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="meeting-time" name="meetingTime" type="time" required />
+              </div>
+              <div class="jn-input-wrap example-form__group">
+                <label for="local-start">Local date &amp; time <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="local-start" name="localStart" type="datetime-local" required />
+              </div>
+              <div class="jn-input-wrap example-form__group">
+                <label for="billing-month">Month <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="billing-month" name="billingMonth" type="month" required />
+              </div>
+              <div class="jn-input-wrap example-form__group">
+                <label for="planning-week">Week <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control" id="planning-week" name="planningWeek" type="week" required />
+              </div>
+              <div class="jn-input-wrap example-form__group">
+                <label for="favorite-color">Favorite color <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control example-control--color" id="favorite-color" name="favoriteColor" type="color" value="#f7df1e" required />
+              </div>
+              <div class="jn-input-wrap example-form__group example-form__group--wide">
+                <label for="comfort-level">Range <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control example-control--range" id="comfort-level" name="comfortLevel" type="range" min="0" max="100" value="35" required />
+              </div>
+              <div class="jn-input-wrap example-form__group example-form__group--wide">
+                <label for="attachment">File upload <span class="example-required" aria-hidden="true">*</span></label>
+                <input class="example-control example-control--file" id="attachment" name="attachment" type="file" accept="image/png,image/jpeg,image/gif,application/pdf" aria-describedby="attachment-help" required />
+                <small id="attachment-help">For this demo, the library accepts PNG, JPEG, GIF, and PDF files. The file is not uploaded.</small>
+              </div>
+            </div>
+          </section>
+
+          <section class="example-form__section" aria-labelledby="choices-heading">
+            <h3 id="choices-heading">03 <span>Choices &amp; notes</span></h3>
+            <div class="example-form__grid">
+              <div class="jn-input-wrap example-form__group">
+                <label for="profile-type">Select dropdown <span class="example-required" aria-hidden="true">*</span></label>
+                <select class="example-control" id="profile-type" name="profileType" aria-describedby="profile-type-help" required>
+                  <option value="">Choose a profile type</option>
+                  <option value="personal">Personal</option>
+                  <option value="team">Team</option>
+                  <option value="education">Education</option>
+                </select>
+                <small id="profile-type-help">Choose a profile type to satisfy the library's select-field rule.</small>
+              </div>
+              <fieldset class="jn-input-wrap example-form__group example-form__choice-group">
+                <legend>Radio buttons <span class="example-required" aria-hidden="true">*</span></legend>
+                <div class="example-choice-list">
+                  <label><input type="radio" name="contactPreference" value="email" required /> Email</label>
+                  <label><input type="radio" name="contactPreference" value="phone" /> Phone</label>
+                  <label><input type="radio" name="contactPreference" value="none" /> No preference</label>
+                </div>
+              </fieldset>
+              <fieldset class="jn-input-wrap example-form__group example-form__choice-group example-form__group--wide">
+                <legend>Checkboxes <span class="example-required" aria-hidden="true">*</span></legend>
+                <div class="example-choice-list example-choice-list--inline">
+                  <label><input type="checkbox" name="interests" value="forms" required /> Forms</label>
+                  <label><input type="checkbox" name="interests" value="accessibility" /> Accessibility</label>
+                  <label><input type="checkbox" name="interests" value="javascript" /> JavaScript</label>
+                </div>
+              </fieldset>
+              <div class="jn-input-wrap example-form__group example-form__group--wide">
+                <label for="notes">Textarea <span class="example-required" aria-hidden="true">*</span></label>
+                <textarea class="example-control example-control--textarea" id="notes" name="notes" placeholder="Add a short note" required></textarea>
+              </div>
+            </div>
+          </section>
+
+          <div class="example-form__actions">
+            <button class="example-form__button" type="submit">Validate all fields <span aria-hidden="true">→</span></button>
+            <p class="example-form__fineprint">The bundled v2.0.0 validator checks required text-like fields for presence, with specific rules for email, phone, number, URL, file, radio, and checkbox. Date and picker fields are checked for a value only.</p>
+            <p class="example-form__status" role="status" aria-live="polite" tabindex="-1" hidden></p>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

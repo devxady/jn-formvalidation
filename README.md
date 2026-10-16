@@ -1,145 +1,126 @@
 # JN Form Validation
 
-## Overview
-The **JN Form Validation** library is designed to simplify the process of validating HTML forms. It supports various input types, including text, email, password, number, and more. The library ensures that users enter valid data into forms and displays error messages or highlights invalid fields as needed.
+JN Form Validation is a small, dependency-free browser library for checking common form fields when a form is submitted. It adds field-level error messages by default.
 
----
+This README describes the current 2.0.0 implementation in this repository. Validation is client-side convenience; validate submitted data again on your server.
 
-## Features
-- Supports multiple input types: `text`, `email`, `password`, `tel`, `checkbox`, `radio`, `select`, and `textarea`.
-- Customizable error messages.
-- Easy integration into any project.
-- Lightweight and efficient.
-- Fully customizable for advanced use cases.
+## Install
 
----
+The repository includes a downloadable ZIP:
 
-## Installation
+- [Download jn-form-validation-2.0.0.zip](./download/jn-form-validation-2.0.0.zip)
+- The archive contains assets/js/jn.formvalidation.min.js and assets/css/jn-formvalidation.min.css.
+- In the supplied ZIP, assets/js/function.js is only an attribution log; it is not the validator entry point. Use the jn.formvalidation files.
+- There is no npm package manifest in this repository.
 
-<!-- ### Using npm (Recommended)
-```bash
-npm install jn-form-validation
-``` -->
+Include the files from the extracted package:
 
-### Manual Integration
-1. Download the library from the repository.
-2. Include the `jn-form-validation.js` file in your HTML:
-   ```html
-   <script src="path/to/jn-form-validation.js"></script>
-   ```
+    <link rel="stylesheet" href="assets/css/jn-formvalidation.min.css">
+    <script src="assets/js/jn.formvalidation.min.js"></script>
 
----
+The project website also uses jsDelivr URLs pointing to the repository's code/assets directory. Those URLs follow the repository's current default branch:
 
-## Usage
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/chauhan07/jn-formvalidation/code/assets/css/jn-formvalidation.min.css">
+    <script
+      src="https://cdn.jsdelivr.net/gh/chauhan07/jn-formvalidation/code/assets/js/jn.formvalidation.min.js"></script>
 
-### Basic Setup
-1. Create an instance of the `JNFormValidation` class:
-   ```javascript
-   const formValidator = new JNFormValidation({
-       formClass: 'validate-me',
-       showErrorMessages: true
-   });
-   ```
+## Basic usage
 
-2. Add the `validate-me` class to your HTML form:
-   ```html
-   <form class="validate-me">
-      <label class="jn-input-wrap">
-       <input type="text" name="username" required>
-      </label>
-      <label class="jn-input-wrap">
-       <input type="email" name="email" required>
-      </label>
-      <label class="jn-input-wrap">
-       <button type="submit">Submit</button>
-      </label>
-   </form>
-   ```
+Pass a CSS selector to **formClass**. Add **jn-input-wrap** to each field wrapper; the library checks the first input, select, or textarea inside each wrapper.
 
-3. Add following css for error messages:
-   ```css
-   .jn-error-wrap > .jn-error-message{
-        background: #c44106;
-        color: #fff;
-        font-size: 12px;
-        padding: 4px 15px;
-        border-radius: 0 0 5px 5px;
-        width: 100%;
-    }
+    <form class="checkout-form" action="/checkout" method="post" novalidate>
+      <div class="jn-input-wrap">
+        <label for="checkout-email">Email</label>
+        <input id="checkout-email" name="email" type="email">
+      </div>
+      <button type="submit">Continue</button>
+    </form>
 
-    .jn-error-wrap input:not([type="radio"]):not([type="checkbox"]),
-    .jn-error-wrap select,
-    .jn-error-wrap .fileDesign,
-    .jn-error-wrap textarea {
-        border: 1px solid #c44106!important;
-    }
-   ```
+    <script>
+      new JnFormValidation({
+        formClass: ".checkout-form",
+        showErrorMessages: true
+      });
+    </script>
 
----
+The library attaches a submit listener. Use **novalidate** when the browser's native constraint checks would prevent that listener from receiving an empty or malformed value. Choose the correct **action** and **method** for your application.
+
+If every checked field passes, the current implementation calls **form.submit()**. This sends the form to its configured destination and bypasses other submit listeners and native constraint validation. Do not point a production form at an unintended destination.
 
 ## Options
-The `JNFormValidation` class accepts an options object to customize its behavior:
 
-| Option             | Type    | Default | Description                                      |
-|--------------------|---------|---------|--------------------------------------------------|
-| `formClass`        | String  | `''`    | CSS class name for the forms to validate.        |
-| `showErrorMessages`| Boolean | `true`  | Whether to show error messages for invalid fields.|
-| `errorMessages`    | Object  | `{}`    | Custom error messages for specific field types.  |
+| Option | Type | Default | Behavior |
+| --- | --- | --- | --- |
+| formClass | String | empty string | CSS selector for forms to validate. An empty string logs a message and skips setup. |
+| showErrorMessages | Boolean | true | Append an error message when true; add a red inline outline when false. |
+| errorMessages | Object | Built-in message map | Override matching message keys while keeping defaults for keys not supplied. |
 
-### Default Error Messages
-```javascript
-const defaultErrorMessages = {
-    email: "Please enter a valid email address.",
-    text: "Please enter some text.",
-    password: "Please enter a valid password.",
-    tel: "Please enter a valid phone number.",
-    number: "Please enter a valid number.",
-    checkbox: "This option must be checked.",
-    radio: "Please select an option.",
-    select: "Please select an option.",
-    textarea: "Please enter some text.",
-    file: "Please upload a valid file."
-};
-```
+Example override:
 
----
+    new JnFormValidation({
+      formClass: ".checkout-form",
+      errorMessages: {
+        email: "Enter a valid email address.",
+        text: "This field cannot be empty."
+      }
+    });
 
-## Advanced Usage
-### Custom Error Handling
-You can override the default error messages by passing a custom `errorMessages` object:
-```javascript
-const formValidator = new JNFormValidation({
-    errorMessages: {
-        email: "Invalid email format.",
-        password: "Password must contain at least 8 characters."
-    }
-});
-```
+### Default message keys
 
----
+The available keys are **email**, **text**, **password**, **tel**, **number**, **checkbox**, **radio**, **select**, **textarea**, **file**, **search**, **url**, **date**, **time**, **datetimeLocal**, **month**, **week**, **range**, and **color**. A datetime-local control uses the datetimeLocal key.
 
-## License
-This library is open-source and licensed under the [MIT License](https://opensource.org/licenses/MIT).
+## Supported field checks
 
----
+All checks run on submit and only for controls within jn-input-wrap.
 
-## Author
-**Ady**  
-For inquiries or support, contact: [adityachauhan808@gmail.com]
+| Type | Current check |
+| --- | --- |
+| text, password, search, select, textarea | Trimmed value must not be empty. |
+| email | Basic address pattern; not a full standards check. |
+| tel | Exactly ten digits. |
+| number | Digits only; this check does not accept decimals or negative signs. |
+| url | Basic pattern accepts ftp://, http://, or https:// URLs. |
+| checkbox, radio | At least one control with the same name in the form must be selected. |
+| file | Selected MIME type must be PNG, JPEG, GIF, or PDF. |
+| date, time, datetime-local, month, week, range, color | Value must not be empty; there are no date bounds or range options. |
 
----
+The password check does not implement strength requirements. Give checkbox and radio groups a shared, non-empty name. Other input types are not checked by the current implementation.
 
-## Version History
-| Version | Date       | Changes                                       |
-|---------|------------|-----------------------------------------------|
-| 1.0.0   | 2024-12-23 | Initial release with basic validation support.|
+## Error feedback and accessibility
 
----
+When messages are enabled, the library appends a jn-error-message element and adds jn-error-wrap to the wrapper. The package CSS provides basic error styling. The library itself does not associate generated messages with controls using aria-describedby or set aria-invalid; the website preview adds those attributes as a site-only enhancement.
 
-## Contribution
-Contributions are welcome! Please fork the repository, make your changes, and submit a pull request.
+In version 2.0.0, outline mode sets an inline outline style. Its reset code removes an error-outline class rather than the inline style, so an outline may remain after a later submit attempt.
 
----
+## Browser support
 
-## Acknowledgments
-Thanks to all contributors and the open-source community for their support!
+The JavaScript uses modern syntax, including classes and object spread. The older browser/device list previously shown on the website was not backed by a current test matrix; no legacy-browser support is claimed here.
+
+## License and project
+
+The pre-existing project README identifies the library as MIT licensed. No separate LICENSE file appears in this workspace or in the supplied ZIP archive. Confirm that the license text is present upstream before redistributing the package. See the [GitHub repository](https://github.com/chauhan07/jn-formvalidation) for the source and issue tracker.
+
+## Future Library Improvements — Approval Required
+
+These findings are recorded for a separate library phase. They have not been implemented as part of the website redesign:
+
+- Clear the inline error outline reliably when a later validation attempt runs.
+- Associate errors with their controls and expose invalid state from the library itself.
+- Revisit how a successful validation submits the form so application submit handlers and native constraint behavior are not silently bypassed.
+- Avoid debug logging during normal initialization and form submission.
+- Review group selection when names are missing, and clarify the one-control-per-wrapper behavior.
+- Add an automated browser matrix and test cases for the documented input checks; remove or substantiate legacy compatibility claims.
+- Confirm the published, unminified and minified distribution builds remain aligned with the maintained source.
+- Reconcile code/assets/js/function.js, which contains a validator copy, with the console-only function.js inside the downloadable ZIP.
+- Confirm and include the MIT license text in the repository and downloadable archive.
+
+## Version history
+
+| Version | Date | Notes |
+| --- | --- | --- |
+| 1.0.0 | 2024-12-23 | Initial release, as listed in the existing project README. |
+
+## Contributing
+
+Use the GitHub repository to discuss bugs, documentation issues, and proposed changes. Library behavior changes require a separate review from this website-only redesign.

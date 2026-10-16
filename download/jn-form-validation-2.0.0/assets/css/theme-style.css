@@ -1,0 +1,146 @@
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/************** JN FORM **************/
+/**************VALIDATION*************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+
+/*
+ *   Version: 2.0.0                                                                 
+ *   Author: Aditya Chauhan                                                         
+ *   License: MIT                                                                   
+ *   Description: This script provides the validation logic for form fields such    
+ *   as email, password, text, and other input types. It highlights invalid         
+ *   fields and displays error messages accordingly.                                
+*/
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Andika", sans-serif;
+}
+body{
+  background-color: #eceeed;
+}
+.container{
+  width: 850px;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #ece5e5;
+  padding: 10px 25px 35px;
+}
+h1{
+  color:#471600;
+  font-size: 45px;
+}
+
+form{
+  display: flex;
+  flex-wrap: wrap;
+}
+.jn-input-wrap{
+  padding: 0 7px;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.w-20{
+  width: calc(100% / 5);
+}
+.w-33{
+  width: calc(100% / 3);
+}
+.w-50{
+  width: 50%;
+}
+.w-100{
+  width: 100%;
+}
+
+
+
+input:not([type="radio"]):not([type="checkbox"]),
+select,
+textarea{
+  width: 100%;
+  height: 45px;
+  border: 0;
+  outline: 0 !important;
+  padding: 0 15px;
+  background-color: #fff;
+  font-size: 13px;
+}
+
+input[type="color"]{
+  padding: 0!important;
+}
+
+textarea{
+  height: 120px;
+  padding: 12px 15px;
+}
+
+.jn-input-wrap > input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.fileDesign {
+  height: 120px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="checkbox"],
+input[type="radio"]{
+  zoom: 1.5;
+  margin-right: 7px;
+  position: relative;
+  top: 1px;
+}
+
+.jn-input-wrap input[type="submit"]{
+  background: #471600;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18px;
+  height: 60px;
+  margin-top: 25px;
+}
+
+
+
+/* Error Message Design */
+.jn-error-wrap > .jn-error-message{
+    background: #c44106;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 15px;
+    border-radius: 0 0 5px 5px;
+    width: 100%;
+}
+
+.jn-error-wrap input:not([type="radio"]):not([type="checkbox"]),
+.jn-error-wrap select,
+.jn-error-wrap .fileDesign,
+.jn-error-wrap textarea {
+    border: 1px solid #c44106!important;
+}

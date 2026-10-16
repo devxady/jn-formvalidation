@@ -1,130 +1,76 @@
-<!-- ab email ki further validation ka option dena hai ki kis kis domain ke sath hi valid ho 
-jn-input-wrap bhi instance me pass karna hia and upar se hatana hai 
-values fill hote hi error remove ho jaye 
-date  ke liye validation ki kab se kab tak ki date valid ho sake  -->
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>JN Form Validation</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <title>Field Type Gallery — JN Form Validation</title>
+  <meta name="description" content="Interactive gallery of the input types handled by the JN Form Validation 2.0.0 distribution.">
+  <link rel="canonical" href="https://chauhan07.github.io/jn-formvalidation/code/index.html">
+  <link rel="icon" type="image/png" href="../assets/img/fav.png">
+  <link rel="stylesheet" href="./assets/css/jn-formvalidation.min.css">
+  <link rel="stylesheet" href="../assets/css/theme-style.css">
+  <script defer src="./assets/js/jn.formvalidation.min.js"></script>
+  <script defer src="../assets/code/prism/prism.js"></script>
+  <script defer src="../assets/js/function.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header"><div class="container nav-shell">
+    <a class="brand" href="../index.html" aria-label="JN Form Validation home"><span class="brand-mark" aria-hidden="true">JN</span><span><span class="brand-name">formvalidation.js</span><span class="brand-caption">JavaScript forms</span></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation"><span></span><span></span><span></span></button>
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation"><a href="../index.html">Home</a><a href="../docs.html">Docs</a><a href="../installation.html">Installation</a><a href="../options.html">Options</a><a href="../demo.html">Examples</a><a class="nav-support" href="https://buymeacoffee.com/devxaditya" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">☕</span> Buy Me a Coffee</a><a class="nav-github" href="https://github.com/chauhan07/jn-formvalidation" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+  </div></header>
 
-    <link rel="stylesheet" href="./assets/css/theme-style.css" />
-  </head>
+  <section class="page-hero"><div class="container">
+    <span class="eyebrow">Examples · Full field gallery</span><h1>Explore the field checks.</h1>
+    <p class="lead">This form is wired to the existing distribution build. Submit it empty to see which fields the 2.0.0 implementation checks.</p>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../demo.html">Examples</a><span aria-hidden="true">/</span><span aria-current="page">Field gallery</span></nav>
+  </div></section>
 
-  <body>
-    <h1 style="text-align: center">Form Validation</h1>
+  <main class="container section" id="main-content">
+    <div class="demo-form-card gallery-card">
+      <h2>Input type gallery</h2>
+      <p>Each control sits inside a <code>.jn-input-wrap</code>. Values are submitted only to a blank local frame.</p>
+      <form class="jnForm gallery-fields" action="about:blank" method="get" target="jn-gallery-result" novalidate>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-text">Text</label><input id="gallery-text" name="text" type="text"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-email">Email</label><input id="gallery-email" name="email" type="email"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-password">Password</label><input id="gallery-password" name="password" type="password"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-phone">Telephone (10 digits)</label><input id="gallery-phone" name="phone" type="tel"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-number">Number (digits only)</label><input id="gallery-number" name="number" type="number"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-search">Search</label><input id="gallery-search" name="search" type="search"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-url">URL (include protocol)</label><input id="gallery-url" name="url" type="url"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-select">Select</label><select id="gallery-select" name="selection"><option value="">Choose an option</option><option value="one">Option one</option><option value="two">Option two</option></select></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-date">Date</label><input id="gallery-date" name="date" type="date"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-time">Time</label><input id="gallery-time" name="time" type="time"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-datetime">Date and time</label><input id="gallery-datetime" name="datetime" type="datetime-local"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-month">Month</label><input id="gallery-month" name="month" type="month"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-week">Week</label><input id="gallery-week" name="week" type="week"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-color">Color</label><input id="gallery-color" name="color" type="color" value="#f7df1e"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-range">Range (0–50)</label><input id="gallery-range" name="range" type="range" min="0" max="50" value=""></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-file">File (PNG, JPEG, GIF, PDF)</label><input id="gallery-file" name="file" type="file" accept=".png,.jpg,.jpeg,.gif,.pdf"></div>
+        <div class="jn-input-wrap"><label class="field-label" for="gallery-message">Textarea</label><textarea id="gallery-message" name="message"></textarea></div>
+        <div class="jn-input-wrap option-set"><fieldset><legend class="field-label">Select at least one interest</legend><label><input type="checkbox" name="interest" value="docs"> Documentation</label><label><input type="checkbox" name="interest" value="examples"> Examples</label><label><input type="checkbox" name="interest" value="updates"> Updates</label></fieldset></div>
+        <div class="jn-input-wrap option-set"><fieldset><legend class="field-label">Choose a plan</legend><label><input type="radio" name="plan" value="starter"> Starter</label><label><input type="radio" name="plan" value="team"> Team</label></fieldset></div>
+        <div class="gallery-actions"><input type="submit" value="Validate field examples"><a class="text-link" href="../demo.html">Back to the concise demo →</a></div>
+      </form>
+      <iframe class="demo-sink" name="jn-gallery-result" title="Local field gallery result" sandbox="allow-forms"></iframe>
+    </div>
+    <div class="callout callout-warning gallery-callout"><strong>Interpret the results carefully:</strong> the current checks are basic. For example, password checks only for an empty value, and date-like fields are checked only for an empty value. Read the <a href="../options.html#input-behavior">behavior reference</a> before relying on a specific rule.</div>
+  </main>
 
-    <section>
-      <div class="container">
-        <form action="" class="jnForm">
-          <label class="jn-input-wrap w-50">
-            <input type="text" placeholder="Name" />
-          </label>
-
-          <label class="jn-input-wrap w-50">
-            <input type="email" placeholder="Email" />
-          </label>
-
-          <label class="jn-input-wrap w-50">
-            <input type="tel" placeholder="Phone" />
-          </label>
-
-          <label class="jn-input-wrap w-50">
-            <input type="number" placeholder="Number"/>
-          </label>
-
-          <label class="jn-input-wrap w-50">
-            <input type="password" placeholder="Password"/>
-          </label>
-
-          <label class="jn-input-wrap w-50">
-            <input type="search" placeholder="Search"/>
-          </label>
-
-          <label class="jn-input-wrap w-50">
-            <select name="" id="" type="select-one">
-              <option value="">One</option>
-              <option value="1">Two</option>
-              <option value="2">three</option>
-            </select>
-          </label>
-
-          <label class="jn-input-wrap w-50">
-            <input type="url" placeholder="URL" />
-          </label>
-
-          <label class="jn-input-wrap w-33">
-            <input type="color" placeholder="Color" />
-          </label>
-
-          <label class="jn-input-wrap w-33">
-            <input type="date" placeholder="Date" />
-          </label>
-
-          <label class="jn-input-wrap w-33">
-            <input type="time" placeholder="Time" />
-          </label>
-
-          
-          <label class="jn-input-wrap w-50">
-            <input type="month" placeholder="Date" />
-          </label>
-
-          <label class="jn-input-wrap w-50">
-            <input type="week" placeholder="Time" />
-          </label>
-
-          <label class="jn-input-wrap w-50">
-            <input type="file" placeholder="File"/>
-            <div class="fileDesign">Upload Your File</div>
-          </label>
-
-          <label class="jn-input-wrap w-50">
-            <textarea name="" id="" type="textarea"></textarea>
-          </label>
-          
-          <label class="jn-input-wrap w-100">
-            <input type="range" placeholder="Range" min="0" max="50" />
-          </label>
-
-          <label class="jn-input-wrap w-100">
-            <input type="checkbox" name="hobbies" />
-            This is Checkbox &nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="hobbies" />
-            This is Checkbox &nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="hobbies" />
-            This is Checkbox &nbsp;&nbsp;&nbsp;
-          </label>
-
-          <label class="jn-input-wrap w-100">
-            <input type="radio" name="gender" /> Male &nbsp;&nbsp;&nbsp;
-            <input type="radio" name="gender" /> Female
-          </label>
-
-          <label class="jn-input-wrap w-100">
-            <input type="submit" value="Submit" />
-          </label>
-        </form>
-      </div>
+  <footer class="site-footer"><div class="container">
+    <section class="footer-support" aria-labelledby="support-heading">
+      <div><h2 id="support-heading">Support This Project</h2><p>Enjoying JN Form Validation? Support its development and help keep this project growing.</p></div>
+      <a class="button support-button" href="https://buymeacoffee.com/devxaditya" target="_blank" rel="noopener noreferrer">Buy Me a Coffee <span aria-hidden="true">☕</span></a>
     </section>
-    <script src="./assets/js/function.js"></script>
-    <!-- <script src="./assets/js/jn.formvalidation.js"></script> -->
-
-    <script>
-      
-        // Create an instance with nested objects
-        const jn_validation = new JnFormValidation({
-            showErrorMessages: true,
-            formClass: '.jnForm',
-            errorMessages: {
-                email: "Please enter a valid email address.",
-                text: "Please enter some text.",
-            }
-        });
-
-    </script>
-  </body>
+    <div class="footer-main">
+      <div class="footer-about"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">JN</span><span><span class="brand-name">formvalidation.js</span><span class="brand-caption">JavaScript forms</span></span></a><p>This gallery uses the included distribution build. Validate submitted data on your server as well.</p></div>
+      <div class="footer-links"><strong>Learn</strong><a href="../docs.html">Introduction</a><a href="../installation.html">Installation</a><a href="../options.html">Options</a></div>
+      <div class="footer-links"><strong>Explore</strong><a href="../demo.html">Examples</a><a href="../faq.html">FAQ</a><a href="../contact.html">Contact</a></div>
+      <div class="footer-links"><strong>Project</strong><a href="https://github.com/chauhan07/jn-formvalidation" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a><a href="../download/jn-form-validation-2.0.0.zip">Download v2.0.0</a></div>
+    </div>
+    <div class="footer-bottom"><span>JN Form Validation · Version 2.0.0 · README lists MIT</span><a href="../demo.html">Examples</a></div>
+  </div></footer>
+</body>
 </html>

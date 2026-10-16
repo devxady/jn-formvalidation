@@ -1,186 +1,130 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="./assets/img/fav.png">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <title>Documentation — JN Form Validation</title>
+  <meta name="description" content="Learn how JN Form Validation 2.0.0 initializes, selects forms, checks wrapped fields, and reports errors.">
+  <link rel="canonical" href="https://chauhan07.github.io/jn-formvalidation/docs.html">
+  <link rel="icon" type="image/png" href="./assets/img/fav.png">
+  <meta property="og:type" content="website"><meta property="og:title" content="Documentation — JN Form Validation">
+  <meta property="og:description" content="An accurate introduction and quick start for the JN Form Validation JavaScript library.">
+  <meta property="og:url" content="https://chauhan07.github.io/jn-formvalidation/docs.html">
+  <link rel="stylesheet" href="./assets/css/theme-style.css">
+  <script defer src="./assets/code/prism/prism.js"></script><script defer src="./assets/js/function.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header"><div class="container nav-shell">
+    <a class="brand" href="./index.html" aria-label="JN Form Validation home"><span class="brand-mark" aria-hidden="true">JN</span><span><span class="brand-name">formvalidation.js</span><span class="brand-caption">JavaScript forms</span></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation"><span></span><span></span><span></span></button>
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation"><a href="./index.html">Home</a><a href="./docs.html">Docs</a><a href="./installation.html">Installation</a><a href="./options.html">Options</a><a href="./demo.html">Examples</a><a class="nav-support" href="https://buymeacoffee.com/devxaditya" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">☕</span> Buy Me a Coffee</a><a class="nav-github" href="https://github.com/chauhan07/jn-formvalidation" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+  </div></header>
 
-    <!-- Meta's -->
-    <title>JN Form Validation Documentation - Learn How to Use It</title>
-    <meta name="description" content="Access the comprehensive documentation for JN Form Validation. Get step-by-step guides, examples, and all the details you need to implement the library in your projects.">
-    <meta name="keywords" content="documentation, form validation, javascript, guides, tutorial, JN Form Validation">
-    <meta name="author" content="JN Form Validation">
-    <meta property="og:title" content="JN Form Validation Documentation - Learn How to Use It">
-    <meta property="og:description" content="Access the comprehensive documentation for JN Form Validation. Get step-by-step guides, examples, and all the details you need to implement the library in your projects.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chauhan07.github.io/jn-formvalidation/docs">
-    <!-- <meta property="og:image" content="URL_TO_IMAGE"> -->
-    <!-- Meta's -->
+  <section class="page-hero"><div class="container">
+    <span class="eyebrow">Documentation · Introduction</span>
+    <h1>Understand the setup.</h1>
+    <p class="lead">JN Form Validation is a small JavaScript library that checks selected form fields when a form is submitted, then adds field-level error feedback when a check fails.</p>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="./index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span></nav>
+  </div></section>
 
-    <link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/fonts/stylesheet.css">
-    <link href="./assets/code/prism/prism.css" rel="stylesheet">
-    <link href="./assets/code/line-number/line-number.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/theme-style.css">
-  </head>
-  <body>
-    <header class="inner_page">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-3 logo">
-                    <a href="./">
-                        <i>jn.formvalidation.js</i>
-                    </a>
-                </div>
-                <div class="col-12 col-md-9 d-flex justify-content-end align-items-center">
-                    <ul class="menu">
-                        <li>
-                            <a href="./index.html">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./demo.html">
-                                Demos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./docs.html" class="active">
-                                Docs
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://cdn.jsdelivr.net/gh/chauhan07/jn-formvalidation/download/jn-form-validation-1.0.0.zip" target="_blank">
-                                Download
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+  <main class="container docs-layout" id="main-content">
+    <button class="docs-nav-toggle" type="button" aria-expanded="false" aria-controls="docs-navigation">Documentation menu <span aria-hidden="true">⌄</span></button>
+    <aside class="docs-sidebar" id="docs-navigation" aria-label="Documentation">
+      <div class="sidebar-group"><span class="sidebar-title">Start here</span><a href="./docs.html" aria-current="page">Introduction</a><a href="./installation.html">Installation</a><a href="./docs.html#quick-start">Quick start</a></div>
+      <div class="sidebar-group"><span class="sidebar-title">Configuration</span><a href="./options.html">Options reference</a><a href="./options.html#messages">Default messages</a></div>
+      <div class="sidebar-group"><span class="sidebar-title">Examples</span><a href="./demo.html">Interactive demo</a><a href="./demo.html#supported-inputs">Supported input types</a></div>
+      <div class="sidebar-group"><span class="sidebar-title">Help</span><a href="./faq.html">FAQ</a><a href="./contact.html">Contact &amp; support</a></div>
+    </aside>
+    <article class="prose">
+      <section>
+        <h2 id="overview">Overview</h2>
+        <p>The library attaches a <code>submit</code> listener to every form matched by <code>formClass</code>. When a visitor submits, it checks the first input, select, or textarea inside each <code>.jn-input-wrap</code>. If a check fails, it prevents that submission and adds a message by default. If every checked field passes, it calls the form’s native <code>submit()</code> method.</p>
+        <p>It is a client-side usability aid. Validate submitted data again on your server; browser code cannot be a security boundary.</p>
+        <div class="callout"><strong>Important:</strong> the current 2.0.0 implementation checks every recognized wrapped field, whether or not it has an HTML <code>required</code> attribute. Use <code>novalidate</code> when you want this library to receive empty or malformed values before the browser blocks submission.</div>
+      </section>
+
+      <section>
+        <h2 id="quick-start">Quick start</h2>
+        <ol>
+          <li>Include the library JavaScript and its optional error styles.</li>
+          <li>Add a selector class to the form and <code>jn-input-wrap</code> to each field wrapper.</li>
+          <li>Initialize <code>JnFormValidation</code> once after the form markup.</li>
+        </ol>
+        <div class="code-card"><div class="code-card-header"><span>HTML</span></div>
+          <pre data-language="HTML"><code class="language-markup">&lt;link rel="stylesheet" href="assets/css/jn-formvalidation.min.css"&gt;
+
+&lt;form class="signup-form" action="/signup" method="post" novalidate&gt;
+  &lt;div class="jn-input-wrap"&gt;
+    &lt;label for="signup-email"&gt;Email&lt;/label&gt;
+    &lt;input id="signup-email" name="email" type="email"&gt;
+  &lt;/div&gt;
+  &lt;button type="submit"&gt;Create account&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;script src="assets/js/jn.formvalidation.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  new JnFormValidation({
+    formClass: ".signup-form",
+    showErrorMessages: true
+  });
+&lt;/script&gt;</code></pre>
         </div>
-    </header>
+        <p>Set <code>action</code> and <code>method</code> to the endpoint your application uses. The example endpoint above is illustrative; it is not provided by this library.</p>
+      </section>
 
-
-    <!-- inner banner -->
-    <section class="inner_banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="hdng">
-                        Getting Started
-                    </h1>
-                </div>
-            </div>
+      <section>
+        <h2 id="form-structure">Form and field structure</h2>
+        <p><code>formClass</code> is passed to <code>document.querySelectorAll</code>, so provide a CSS selector such as <code>".signup-form"</code> or <code>"form.needs-validation"</code>. Every field to check must be inside an element with the class <code>jn-input-wrap</code>. The wrapper can be a <code>div</code> or a <code>label</code>; use explicit labels and matching IDs for accessible names.</p>
+        <p>The library reads one control from each wrapper. Keep one field control in a wrapper. For a checkbox or radio group, place the group in one wrapper and give all group members the same non-empty <code>name</code>.</p>
+        <div class="code-card"><div class="code-card-header"><span>HTML</span></div>
+          <pre data-language="HTML"><code class="language-markup">&lt;div class="jn-input-wrap"&gt;
+  &lt;label for="account-name"&gt;Account name&lt;/label&gt;
+  &lt;input id="account-name" name="accountName" type="text"&gt;
+&lt;/div&gt;</code></pre>
         </div>
+      </section>
+
+      <section>
+        <h2 id="validation-flow">How validation runs</h2>
+        <ol>
+          <li>A matching form receives a submit listener during construction.</li>
+          <li>On submit, previous message elements and wrapper error classes are cleared.</li>
+          <li>Each <code>.jn-input-wrap</code> is checked using its first input, select, or textarea.</li>
+          <li>Invalid values receive the configured message (or an outline when messages are disabled).</li>
+          <li>If all checked fields pass, the library submits the form using <code>form.submit()</code>.</li>
+        </ol>
+        <div class="callout callout-warning"><strong>Submission behavior:</strong> the native <code>form.submit()</code> call bypasses other submit listeners and browser constraint validation. Give production forms a real action and server-side validation. Use the demo page to try the library without an application endpoint.</div>
+      </section>
+
+      <section>
+        <h2 id="error-feedback">Error messages</h2>
+        <p>With <code>showErrorMessages: true</code>, an invalid wrapper receives <code>.jn-error-wrap</code> and a child <code>.jn-error-message</code>. The distributed stylesheet provides basic red error styling; the site demo adds an accessible alert role to these generated messages.</p>
+        <p>Messages are cleared on the next submit attempt, not as the user types. Override only the message keys you need with the <code>errorMessages</code> option. See the <a href="./options.html#messages">default message reference</a>.</p>
+      </section>
+
+      <section>
+        <h2 id="compatibility">Compatibility and scope</h2>
+        <p>The published package contains plain JavaScript and CSS files and has no runtime package-manager dependency. The source uses modern JavaScript syntax, including classes and object spread. The old browser/device list in the previous guide was not backed by a current test matrix, so no legacy-browser support is claimed here.</p>
+        <p>See <a href="./demo.html#supported-inputs">the supported input reference</a> for the actual checks and their limits. This release does not provide live-on-input validation, async rules, or a callback API.</p>
+      </section>
+    </article>
+    <nav class="on-page" aria-label="On this page"><strong>On this page</strong></nav>
+  </main>
+
+  <footer class="site-footer"><div class="container">
+    <section class="footer-support" aria-labelledby="support-heading">
+      <div><h2 id="support-heading">Support This Project</h2><p>Enjoying JN Form Validation? Support its development and help keep this project growing.</p></div>
+      <a class="button support-button" href="https://buymeacoffee.com/devxaditya" target="_blank" rel="noopener noreferrer">Buy Me a Coffee <span aria-hidden="true">☕</span></a>
     </section>
-
-
-    <!-- usage info -->
-     <section class="docs_box">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-8 col-lg-9">
-                    <div class="col-12 pe-md-5">
-                        <h3 class="hdng">
-                            Welcome
-                        </h3>
-                        <p class="quote_desc">
-                            No matter if you are a beginner or an advanced user, starting with jn.formvalidation is easy.
-                        </p>
-
-                        <h4 class="subHdng">
-                            Compatibility
-                        </h4>
-                        <p class="desc">
-                            jn.formvalidation.js 1.x.x introduces a brand-new approach to form validation and is not compatible with any earlier prototypes. While the core concept remains intuitive, the library has been built from the ground up to deliver powerful new features and enhanced performance.
-                            <br/><br/>
-                            jn.formvalidation.js has been thoroughly tested across the following browsers/devices:
-                        </p>
-                        <ul>
-                            <li>Chrome</li>
-                            <li>Firefox</li>
-                            <li>Opera</li>
-                            <li>IE7/8/10/11</li>
-                            <li>iPad Safari</li>
-                            <li>iPod4 Safari</li>
-                            <li>Nexus 7 Chrome</li>
-                            <li>Galaxy S4</li>
-                            <li>Nokia 8s Windows8</li>
-                        </ul>
-                    </div>
-                    <div class="col-12 mt-5 pe-md-5">
-                        <h3 class="subHdng">
-                            Files included
-                        </h3>
-                        <p class="desc">
-                            Distributed version structure:
-                        </p>
-                        <div class="codeHere">
-                            <span class="function">
-                                <pre class="line-numbers">
-<code class="language-html">jn.formvalidation/
-├── assets/
-├────── css/
-│       ├── jn.formvalidation.css
-│       ├── jn.formvalidation.min.css
-├────── js/
-│       ├── jn.formvalidation.js
-│       ├── jn.formvalidation.min.js
-├── index.html
-├── LICENSE-MIT
-└── README.md</code>
-                            </pre>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 col-lg-3">
-                    <h4 class="sideBar_hdng">
-                        Get Started
-                    </h4>
-                    <ul class="sidebar_menu">
-                        <li>
-                            <a href="./docs.html" class="active">Welcome</a>
-                        </li>
-                        <li>
-                            <a href="./installation.html">Installation</a>
-                        </li>
-                        <li>
-                            <a href="./options.html">Options</a>
-                        </li>
-                        <!-- <li>
-                            <a href="./faq.html">FAQ</a>
-                        </li>
-                        <li>
-                            <a href="./contact.html">Contact</a>
-                        </li> -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-     </section>
-
-    <!-- footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <p>
-                        Aditya Chauhan 
-                        <a href="https://www.instagram.com/ad1tya.rana" target="_blank">
-                            <img src="./assets/img/instagram.png" alt="">
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    
-    <script src="./assets/js/obfuscated.js"></script>
-    <script src="./assets/code/prism/prism.js"></script>
-    <script src="./assets/code/line-number/line-number.js"></script>
-    <script src="./assets/js/function.js"></script>
-    
-  </body>
+    <div class="footer-main">
+      <div class="footer-about"><a class="brand" href="./index.html"><span class="brand-mark" aria-hidden="true">JN</span><span><span class="brand-name">formvalidation.js</span><span class="brand-caption">JavaScript forms</span></span></a><p>A small JavaScript form validation library. Validate submitted data on your server as well.</p></div>
+      <div class="footer-links"><strong>Learn</strong><a href="./docs.html">Introduction</a><a href="./installation.html">Installation</a><a href="./options.html">Options</a></div>
+      <div class="footer-links"><strong>Explore</strong><a href="./demo.html">Examples</a><a href="./faq.html">FAQ</a><a href="./contact.html">Contact</a></div>
+      <div class="footer-links"><strong>Project</strong><a href="https://github.com/chauhan07/jn-formvalidation" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a><a href="./download/jn-form-validation-2.0.0.zip">Download v2.0.0</a></div>
+    </div>
+    <div class="footer-bottom"><span>JN Form Validation · Version 2.0.0 · README lists MIT</span><a href="./index.html">Back to home ↑</a></div>
+  </div></footer>
+</body>
 </html>
